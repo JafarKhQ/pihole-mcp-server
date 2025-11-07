@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: pihole-mcp-server
+  main:
+    banner-mode: off
+    web-application-type: none
+  ai:
+    mcp:
+      server:
+        enabled: true
+        stdio: true
+        name: pihole-mcp-server-java
+        version: 0.0.1
+        instructions: "This server allows you to manage Pi-hole through its API."
+        type: SYNC #ASYNC
+        request-timeout: 30
+        capabilities:
+          tool: true
+          resource: true
+          prompt: true
+          completion: true
+
+logging:
+  console:
+    enabled: false
+  pattern:
+    console:
+  file:
+    name: pihole-mcp-stdio-server.log
