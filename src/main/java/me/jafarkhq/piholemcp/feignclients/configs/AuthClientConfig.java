@@ -17,10 +17,7 @@ public class AuthClientConfig {
 
     @Bean
     public RequestInterceptor apiKeyRequestInterceptor(AuthService authService) {
-        return requestTemplate -> {
-            // just pass the APIKey as header
-            requestTemplate.header(HEADER_NAME_SID, authService.getValidToken());
-        };
+        return requestTemplate -> requestTemplate.header(HEADER_NAME_SID, authService.getValidToken());
     }
 
     @Bean
@@ -32,7 +29,7 @@ public class AuthClientConfig {
     public ErrorDecoder errorDecoder(AuthService authService) {
         return (methodKey, response) -> {
             if (response.status() == HttpStatus.UNAUTHORIZED.value()) {
-                authService.getValidToken(); // Force renewal
+                authService.invalidateToken(); // Force renewal
                 return new RetryableException(response.status(), "Token expired, retrying...",
                         response.request().httpMethod(), (Long) null, response.request());
             }

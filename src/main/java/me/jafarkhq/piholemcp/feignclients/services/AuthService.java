@@ -13,13 +13,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthService {
 
+    private static final String KEY_AUTH_SID = "auth-sid-key";
+
     @Value("${pihole.app_password}")
     byte[] apiKey;
     AuthClient client;
     Cache<String, CacheConfig.CachedWithExpiry> tokenCache;
 
     public String getValidToken() {
-        return tokenCache.get("auth_token", key -> {
+        return tokenCache.get(KEY_AUTH_SID, key -> {
             try {
                 // TODO: validate the response
                 var session = client.login(new AuthRequest(new String(apiKey))).session();
@@ -29,6 +31,10 @@ public class AuthService {
                 throw new RuntimeException("Failed to generate the token", e);
             }
         }).value();
+    }
+
+    public void invalidateToken() {
+        tokenCache.invalidate(KEY_AUTH_SID);
     }
 
 }
