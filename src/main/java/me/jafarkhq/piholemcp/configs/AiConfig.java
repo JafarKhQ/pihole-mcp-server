@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class AiConfig {
 
     @Bean
-    public ToolCallbackProvider weatherTools(MetricsTool metricsTool) {
+    public ToolCallbackProvider piholeTools(MetricsTool metricsTool) {
         return MethodToolCallbackProvider.builder()
                 .toolObjects(metricsTool)
                 .build();
