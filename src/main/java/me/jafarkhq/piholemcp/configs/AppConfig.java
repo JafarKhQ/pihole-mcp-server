@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-@EnableFeignClients
+@EnableFeignClients(basePackages = "me.jafarkhq.piholemcp.feignclients")
 public class AppConfig {
 
     @Bean

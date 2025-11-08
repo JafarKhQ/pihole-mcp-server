@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthService {
 
-    @Value("${PIHOLE_APP_PASSWORD}")
+    @Value("${pihole.app_password}")
     byte[] apiKey;
     AuthClient client;
     Cache<String, CacheConfig.CachedWithExpiry> tokenCache;

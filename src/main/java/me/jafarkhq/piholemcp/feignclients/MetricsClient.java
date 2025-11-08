@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
-@FeignClient(url = "${PIHOLE_URL}", configuration = AuthClientConfig.class)
+@FeignClient(name= "piholeMetrics", url = "${pihole.url}", configuration = AuthClientConfig.class)
 public interface MetricsClient {
 
     @GetMapping("stats/summary")

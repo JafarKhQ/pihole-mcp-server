@@ -1,0 +1,2 @@
+PIHOLE_HOST: localhost
+PIHOLE_APP_PASSWORD: test-password
