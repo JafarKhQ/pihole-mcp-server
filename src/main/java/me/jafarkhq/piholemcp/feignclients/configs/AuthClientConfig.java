@@ -19,13 +19,13 @@ public class AuthClientConfig {
     public RequestInterceptor apiKeyRequestInterceptor(AuthService authService) {
         return requestTemplate -> {
             // just pass the APIKey as header
-            requestTemplate.header(HEADER_NAME_SID, new String(authService.getValidToken()));
+            requestTemplate.header(HEADER_NAME_SID, authService.getValidToken());
         };
     }
 
     @Bean
     public Retryer retryer() {
-        return new Retryer.Default(100, SECONDS.toMillis(1), 2); // maxAttempts = 2 (1 original + 1 retry)
+        return new Retryer.Default(100, SECONDS.toMillis(1), 2);
     }
 
     @Bean
