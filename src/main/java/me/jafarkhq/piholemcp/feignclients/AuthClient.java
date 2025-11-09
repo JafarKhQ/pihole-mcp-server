@@ -2,12 +2,11 @@ package me.jafarkhq.piholemcp.feignclients;
 
 import me.jafarkhq.piholemcp.feignclients.models.AuthRequest;
 import me.jafarkhq.piholemcp.feignclients.models.AuthResponse;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-@FeignClient(name = "piholeAuth", url = "${pihole.url}", path = "auth")
+@PiholeClient(name = "piholeAuth", path = "auth", configuration = {})
 public interface AuthClient {
 
     @PostMapping

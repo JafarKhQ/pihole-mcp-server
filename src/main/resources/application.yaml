@@ -23,10 +23,9 @@ spring:
 
 # Logging
 logging:
+  register-shutdown-hook: false
   console:
     enabled: false
-  pattern:
-    console:
   file:
     name: pihole-mcp-stdio-server.log
 
