@@ -16,7 +16,6 @@ on:
 
 permissions:
   contents: write  # Required to update dependency graph
-  # pull-requests: write  # Optional: for PR comments
   actions: read  # Required for dependency graph
 
 jobs:

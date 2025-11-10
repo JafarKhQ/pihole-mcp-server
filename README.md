@@ -17,7 +17,7 @@ JSON configuration example:
     "command": "java",
     "args": [
       "-jar",
-      "/path/to/jar/pihole-mcp.jar"
+      "/absolute/path/to/pihole-mcp.jar"
     ],
     "env": {
       "PIHOLE_PORT": "8080",
@@ -37,7 +37,7 @@ mcpServers:
     command: java
     args:
       - -jar
-      - /path/to/jar/pihole-mcp.jar
+      - /absolute/path/to/pihole-mcp.jar
     env: {
       "PIHOLE_PORT": "8080",
       "PIHOLE_HOST": "192.168.1.2",

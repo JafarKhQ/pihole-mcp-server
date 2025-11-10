@@ -14,8 +14,7 @@ public class AiConfig {
     @Bean
     public ToolCallbackProvider piholeTools(MetricsTool metricsTool, ActionsTool actionsTool) {
         return MethodToolCallbackProvider.builder()
-                .toolObjects(metricsTool)
-                .toolObjects(actionsTool)
+                .toolObjects(metricsTool, actionsTool)
                 .build();
     }
 
