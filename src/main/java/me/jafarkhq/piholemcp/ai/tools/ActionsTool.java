@@ -1,24 +1,26 @@
 package me.jafarkhq.piholemcp.ai.tools;
 
 import lombok.RequiredArgsConstructor;
+import me.jafarkhq.piholemcp.feignclients.services.ActionsService;
 import me.jafarkhq.piholemcp.feignclients.services.DnsControlService;
 import me.jafarkhq.piholemcp.feignclients.services.DomainManageService;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Component;
 
+
 @Component
 @RequiredArgsConstructor
 public class ActionsTool {
 
+    ActionsService actionsService;
     DnsControlService dnsControlService;
     DomainManageService domainManageService;
 
     @Tool(name = "Restart Pi-hole FTL Service",
             description = "Restart the Pi-hole FTL (Faster Than Light) DNS service to apply changes or resolve issues.")
     public String restartFtlService() {
-        // Placeholder for actual restart logic
-        return "Pi-hole FTL service has been restarted.";
+        return actionsService.restartDns();
     }
 
     @Tool(name = "Get Pi-hole DNS Blocking Status",
