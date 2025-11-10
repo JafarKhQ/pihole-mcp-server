@@ -15,8 +15,8 @@ on:
     branches: [ "main" ]
 
 permissions:
-  contents: write  # Required to update dependency graph
   actions: read  # Required for dependency graph
+  contents: write  # Required to update dependency graph
 
 jobs:
   build:
