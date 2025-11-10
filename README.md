@@ -2,7 +2,13 @@
 STDIO MCP Server for Pi-hole in Java
 
 ## Features
-// TODO: List of features supported by this MCP server
+- Core AI tools
+    - `Restart Pi-hole FTL Service` — restart the Pi-hole FTL DNS service to apply changes or recover.
+    - `Get Pi-hole DNS Blocking Status` — retrieve current blocking mode and remaining timer.
+    - `Set Pi-hole DNS Blocking Status` — enable/disable DNS blocking; optionally set a disable duration (seconds).
+    - `Add New Domain` — add domains to allowlist/denylist (supports `exact` and `regex` kinds) with validation and optional comment.
+    - `Retrive Pi-hole Statistics` — fetch statistics like total queries, blocked queries, and top domains.
+    - `Retrive Pi-hole System Information` — get system info including CPU load, memory usage, blocking percentage, and uptime.
 
 ## Running the Server
 To run the MCP server, you need to have Java 21 installed on your machine.
