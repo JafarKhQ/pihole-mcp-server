@@ -13,7 +13,7 @@ STDIO MCP Server for Pi-hole in Java
 ## Running the Server
 To run the MCP server, you need to have Java 21 installed on your machine.
 
-1. Download the Pi-hole MCP server JAR file from the [releases page]()
+1. Download the Pi-hole MCP server JAR file from the [releases page](https://github.com/JafarKhQ/pihole-mcp-server/releases)
 2. Add MCP server configuration to your AI application client.
 
 JSON configuration example:
