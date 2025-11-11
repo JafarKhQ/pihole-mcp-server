@@ -161,7 +161,7 @@ jobs:
           files: |
             ${{ steps.create_zip.outputs.zip_path }}
             ${{ steps.create_zip.outputs.zip_path }}.sha256
-            ${{ steps.package.outputs.zip_path }}.md5
+            ${{ steps.create_zip.outputs.zip_path }}.md5
           draft: ${{ github.event.inputs.draft }}
           prerelease: ${{ github.event.inputs.prerelease }}
           fail_on_unmatched_files: true
