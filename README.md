@@ -37,16 +37,18 @@ JSON configuration example:
 
 ```json
 {
-  "pihole-mcp-server-java": {
-    "command": "java",
-    "args": [
-      "-jar",
-      "/absolute/path/to/pihole-mcp.jar"
-    ],
-    "env": {
-      "PIHOLE_PORT": "8080",
-      "PIHOLE_HOST": "192.168.1.2",
-      "PIHOLE_APP_PASSWORD": "your_app_password"
+  "mcpServers": {
+    "pihole-mcp-server-java": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "/absolute/path/to/pihole-mcp.jar"
+      ],
+      "env": {
+        "PIHOLE_PORT": "8080",
+        "PIHOLE_HOST": "192.168.1.2",
+        "PIHOLE_APP_PASSWORD": "your_app_password"
+      }
     }
   }
 }
