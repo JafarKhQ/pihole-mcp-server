@@ -25,10 +25,12 @@ import static org.mockito.Mockito.*;
 class DomainManageServiceTest {
 
     @Mock
-    private DomainManageClient domainManageClient;
+    DomainManageClient domainManageClient;
+    @Mock
+    GroupsService groupsService;
 
     @InjectMocks
-    private DomainManageService domainManageService;
+    DomainManageService domainManageService;
 
     @Nested
     @DisplayName("addNewDomain - Happy Path Tests")

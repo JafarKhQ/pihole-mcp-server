@@ -1,4 +1,4 @@
-# Copilot Instructions
+# AI Instructions
 
 ## Project Overview
 Project Name: Pihole MCP Server
@@ -29,7 +29,11 @@ Tech Stack:
 - Use `@Slf4j` for logger injection, log at appropriate levels.
 - Configuration properties in `application.yml`.
 - Lombok for boilerplate code reduction, project defaults to `lombok.fieldDefaults.defaultFinal=true` and `lombok.fieldDefaults.defaultPrivate=true`.
-- 
+- Use inner records when a record is only used once to reduce file count.
+- Do not specify `private final` on fields — Lombok defaults handle this automatically.
+- Use List over ArrayList, Map over HashMap, etc. for variable types.
+- Use List instead of arrays for collections.
+
 ## Testing
 - Use JUnit 5 + AssertJ + Mockito.
 - Mocking with Mockito + `@ExtendWith(MockitoExtension.class)` or Spring Boot test slices.

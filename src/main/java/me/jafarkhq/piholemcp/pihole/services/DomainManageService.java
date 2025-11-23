@@ -17,6 +17,7 @@ public class DomainManageService {
     private static final List<String> VALID_KINDS = List.of("exact", "regex");
 
     DomainManageClient client;
+    GroupsService groupsService;
 
     public String addNewDomain(String type, String kind, String domain, String comment) {
         type = StringUtils.toRootLowerCase(type);
@@ -33,7 +34,11 @@ public class DomainManageService {
             throw new IllegalArgumentException("Domain cannot be blank");
         }
 
-        return client.addNewDomain(type, kind, new AddNewDomainRequest(domain, comment, new int[]{0}, true));
+        return client.addNewDomain(type, kind, new AddNewDomainRequest(domain, comment, getGroupIds(), true));
+    }
+
+    private List<Integer> getGroupIds() {
+        return List.of(groupsService.getDefaultGroupId());
     }
 
 }
