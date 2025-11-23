@@ -1,5 +1,8 @@
 package me.jafarkhq.piholemcp.pihole.models.responses;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 public record StatusSummeryResponse(
         Queries queries,
         Clients clients,
@@ -38,8 +41,17 @@ public record StatusSummeryResponse(
     }
 
     public record Queries(
-            int total, int blocked, double percentBlocked, int uniqueDomains, int forwarded, int cached,
-            double frequency, Types types, Status status, Replies replies) {
+            int total,
+            int blocked,
+            double percentBlocked,
+            int uniqueDomains,
+            int forwarded,
+            int cached,
+            double frequency,
+            @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+            Types types,
+            Status status,
+            Replies replies) {
     }
 
     public record Clients(

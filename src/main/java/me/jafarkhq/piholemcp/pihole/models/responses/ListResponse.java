@@ -2,6 +2,7 @@ package me.jafarkhq.piholemcp.pihole.models.responses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public record ListResponse(
         String address,
         String comment,
