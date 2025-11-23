@@ -1,6 +1,6 @@
-package me.jafarkhq.piholemcp.feignclients;
+package me.jafarkhq.piholemcp.pihole.clients;
 
-import me.jafarkhq.piholemcp.feignclients.models.AddNewDomainRequest;
+import me.jafarkhq.piholemcp.pihole.models.requests.AddNewDomainRequest;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

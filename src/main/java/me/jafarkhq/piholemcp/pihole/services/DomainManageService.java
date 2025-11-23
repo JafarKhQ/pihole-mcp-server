@@ -1,8 +1,8 @@
-package me.jafarkhq.piholemcp.feignclients.services;
+package me.jafarkhq.piholemcp.pihole.services;
 
 import lombok.RequiredArgsConstructor;
-import me.jafarkhq.piholemcp.feignclients.DomainManageClient;
-import me.jafarkhq.piholemcp.feignclients.models.AddNewDomainRequest;
+import me.jafarkhq.piholemcp.pihole.clients.DomainManageClient;
+import me.jafarkhq.piholemcp.pihole.models.requests.AddNewDomainRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 

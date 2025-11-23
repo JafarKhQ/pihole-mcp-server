@@ -1,6 +1,6 @@
-package me.jafarkhq.piholemcp.feignclients;
+package me.jafarkhq.piholemcp.pihole.clients;
 
-import me.jafarkhq.piholemcp.feignclients.models.BlockingStatusRequest;
+import me.jafarkhq.piholemcp.pihole.models.requests.BlockingStatusRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

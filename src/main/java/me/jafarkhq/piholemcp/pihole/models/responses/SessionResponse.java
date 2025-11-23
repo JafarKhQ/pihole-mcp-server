@@ -1,4 +1,4 @@
-package me.jafarkhq.piholemcp.feignclients.models;
+package me.jafarkhq.piholemcp.pihole.models.responses;
 
 public record SessionResponse(boolean valid, String sid, int validity, String message) {
 }

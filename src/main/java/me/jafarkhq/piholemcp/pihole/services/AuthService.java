@@ -1,10 +1,10 @@
-package me.jafarkhq.piholemcp.feignclients.services;
+package me.jafarkhq.piholemcp.pihole.services;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import lombok.RequiredArgsConstructor;
 import me.jafarkhq.piholemcp.configs.CacheConfig;
-import me.jafarkhq.piholemcp.feignclients.AuthClient;
-import me.jafarkhq.piholemcp.feignclients.models.AuthRequest;
+import me.jafarkhq.piholemcp.pihole.clients.AuthClient;
+import me.jafarkhq.piholemcp.pihole.models.requests.AuthRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

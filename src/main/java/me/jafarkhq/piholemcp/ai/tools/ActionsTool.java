@@ -1,9 +1,9 @@
 package me.jafarkhq.piholemcp.ai.tools;
 
 import lombok.RequiredArgsConstructor;
-import me.jafarkhq.piholemcp.feignclients.services.ActionsService;
-import me.jafarkhq.piholemcp.feignclients.services.DnsControlService;
-import me.jafarkhq.piholemcp.feignclients.services.DomainManageService;
+import me.jafarkhq.piholemcp.pihole.services.ActionsService;
+import me.jafarkhq.piholemcp.pihole.services.DnsControlService;
+import me.jafarkhq.piholemcp.pihole.services.DomainManageService;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Component;

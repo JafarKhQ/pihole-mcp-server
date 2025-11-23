@@ -1,8 +1,8 @@
-package me.jafarkhq.piholemcp.feignclients.services;
+package me.jafarkhq.piholemcp.pihole.services;
 
 import lombok.experimental.FieldDefaults;
-import me.jafarkhq.piholemcp.feignclients.DomainManageClient;
-import me.jafarkhq.piholemcp.feignclients.models.AddNewDomainRequest;
+import me.jafarkhq.piholemcp.pihole.clients.DomainManageClient;
+import me.jafarkhq.piholemcp.pihole.models.requests.AddNewDomainRequest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

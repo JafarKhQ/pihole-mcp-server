@@ -1,6 +1,6 @@
-package me.jafarkhq.piholemcp.feignclients;
+package me.jafarkhq.piholemcp.pihole.clients;
 
-import me.jafarkhq.piholemcp.feignclients.configs.AuthClientConfig;
+import me.jafarkhq.piholemcp.pihole.configs.AuthClientConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.core.annotation.AliasFor;
 

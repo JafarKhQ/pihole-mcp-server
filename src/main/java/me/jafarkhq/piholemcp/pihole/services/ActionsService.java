@@ -1,7 +1,7 @@
-package me.jafarkhq.piholemcp.feignclients.services;
+package me.jafarkhq.piholemcp.pihole.services;
 
 import lombok.RequiredArgsConstructor;
-import me.jafarkhq.piholemcp.feignclients.ActionsClient;
+import me.jafarkhq.piholemcp.pihole.clients.ActionsClient;
 import org.springframework.stereotype.Service;
 
 

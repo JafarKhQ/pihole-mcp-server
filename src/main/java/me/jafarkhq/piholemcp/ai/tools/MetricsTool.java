@@ -1,9 +1,9 @@
 package me.jafarkhq.piholemcp.ai.tools;
 
 import lombok.RequiredArgsConstructor;
-import me.jafarkhq.piholemcp.feignclients.models.StatusSummeryResponse;
-import me.jafarkhq.piholemcp.feignclients.services.FtlInfoService;
-import me.jafarkhq.piholemcp.feignclients.services.MetricsService;
+import me.jafarkhq.piholemcp.pihole.models.responses.StatusSummeryResponse;
+import me.jafarkhq.piholemcp.pihole.services.FtlInfoService;
+import me.jafarkhq.piholemcp.pihole.services.MetricsService;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.stereotype.Component;
 

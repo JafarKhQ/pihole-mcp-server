@@ -8,7 +8,7 @@ import tools.jackson.databind.DeserializationFeature;
 
 
 @Configuration
-@EnableFeignClients(basePackages = "me.jafarkhq.piholemcp.feignclients")
+@EnableFeignClients(basePackages = "me.jafarkhq.piholemcp.pihole.clients")
 public class AppConfig {
 
     @Bean

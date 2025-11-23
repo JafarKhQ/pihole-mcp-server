@@ -1,7 +1,7 @@
-package me.jafarkhq.piholemcp.feignclients;
+package me.jafarkhq.piholemcp.pihole.clients;
 
-import me.jafarkhq.piholemcp.feignclients.models.AuthRequest;
-import me.jafarkhq.piholemcp.feignclients.models.AuthResponse;
+import me.jafarkhq.piholemcp.pihole.models.requests.AuthRequest;
+import me.jafarkhq.piholemcp.pihole.models.responses.AuthResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 

@@ -1,6 +1,6 @@
-package me.jafarkhq.piholemcp.feignclients;
+package me.jafarkhq.piholemcp.pihole.clients;
 
-import me.jafarkhq.piholemcp.feignclients.models.StatusSummeryResponse;
+import me.jafarkhq.piholemcp.pihole.models.responses.StatusSummeryResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 
 

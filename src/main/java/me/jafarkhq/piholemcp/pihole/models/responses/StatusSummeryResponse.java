@@ -1,4 +1,4 @@
-package me.jafarkhq.piholemcp.feignclients.models;
+package me.jafarkhq.piholemcp.pihole.models.responses;
 
 public record StatusSummeryResponse(Queries queries, Clients clients, Gravity gravity, double took) {
 

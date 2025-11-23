@@ -1,4 +1,4 @@
-package me.jafarkhq.piholemcp.feignclients;
+package me.jafarkhq.piholemcp.pihole.clients;
 
 import org.springframework.web.bind.annotation.PostMapping;
 

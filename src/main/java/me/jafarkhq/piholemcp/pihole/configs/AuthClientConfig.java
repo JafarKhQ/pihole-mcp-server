@@ -1,10 +1,10 @@
-package me.jafarkhq.piholemcp.feignclients.configs;
+package me.jafarkhq.piholemcp.pihole.configs;
 
 import feign.RequestInterceptor;
 import feign.RetryableException;
 import feign.Retryer;
 import feign.codec.ErrorDecoder;
-import me.jafarkhq.piholemcp.feignclients.services.AuthService;
+import me.jafarkhq.piholemcp.pihole.services.AuthService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 

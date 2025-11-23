@@ -1,8 +1,8 @@
-package me.jafarkhq.piholemcp.feignclients.services;
+package me.jafarkhq.piholemcp.pihole.services;
 
 import lombok.RequiredArgsConstructor;
-import me.jafarkhq.piholemcp.feignclients.DnsControlClient;
-import me.jafarkhq.piholemcp.feignclients.models.BlockingStatusRequest;
+import me.jafarkhq.piholemcp.pihole.clients.DnsControlClient;
+import me.jafarkhq.piholemcp.pihole.models.requests.BlockingStatusRequest;
 import org.springframework.stereotype.Service;
 
 

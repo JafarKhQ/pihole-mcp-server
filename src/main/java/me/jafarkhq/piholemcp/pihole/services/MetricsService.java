@@ -1,8 +1,8 @@
-package me.jafarkhq.piholemcp.feignclients.services;
+package me.jafarkhq.piholemcp.pihole.services;
 
 import lombok.RequiredArgsConstructor;
-import me.jafarkhq.piholemcp.feignclients.MetricsClient;
-import me.jafarkhq.piholemcp.feignclients.models.StatusSummeryResponse;
+import me.jafarkhq.piholemcp.pihole.clients.MetricsClient;
+import me.jafarkhq.piholemcp.pihole.models.responses.StatusSummeryResponse;
 import org.springframework.stereotype.Service;
 
 

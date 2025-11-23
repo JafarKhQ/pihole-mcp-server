@@ -1,4 +1,4 @@
-package me.jafarkhq.piholemcp.feignclients.models;
+package me.jafarkhq.piholemcp.pihole.models.responses;
 
 public record AuthResponse(SessionResponse session, ErrorResponse error) {
 }
