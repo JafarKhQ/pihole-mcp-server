@@ -4,12 +4,10 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import lombok.experimental.FieldDefaults;
 import me.jafarkhq.piholemcp.pihole.models.responses.CreateListResponse;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.wiremock.spring.EnableWireMock;
@@ -36,6 +34,12 @@ class ListManageServiceIntegrationTest {
     @Autowired
     ListManageService listManageService;
 
+    @BeforeEach
+    void setupMockedAuthService() {
+        when(authService.getValidToken())
+                .thenReturn("test-sid");
+    }
+
     @AfterEach
     void resetWireMock() {
         wireMockServer.resetAll();
@@ -43,8 +47,6 @@ class ListManageServiceIntegrationTest {
 
     @Test
     void addNewListShouldPostToPiHoleUsingWireMock() {
-        when(authService.getValidToken()).thenReturn("test-sid");
-
         wireMockServer.stubFor(post(urlPathEqualTo("/api/lists"))
                 .withQueryParam("type", equalTo("allow"))
                 .willReturn(okJson("""
@@ -61,10 +63,7 @@ class ListManageServiceIntegrationTest {
                         """)));
 
         CreateListResponse response = listManageService.addNewList(
-                "http://example.com",
-                "ALLOW",
-                " Test comment ",
-                true
+                "http://example.com", "ALLOW", " Test comment ", true
         );
 
         assertThat(response.processed().success())
@@ -83,17 +82,7 @@ class ListManageServiceIntegrationTest {
                         }
                         """, true, true)));
 
-        verify(authService).getValidToken();
+        verify(authService, only()).getValidToken();
     }
 
-//    @TestConfiguration
-//    static class StubConfig {
-//
-//        @Bean
-//        @Primary
-//        AuthService authService() {
-//            return mock(AuthService.class);
-//        }
-//    }
 }
-
