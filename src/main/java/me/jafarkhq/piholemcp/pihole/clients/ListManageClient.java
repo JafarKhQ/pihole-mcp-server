@@ -6,6 +6,7 @@ import me.jafarkhq.piholemcp.pihole.models.responses.ListsResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @PiholeClient(name = "piholeListManage", path = "lists")
@@ -15,6 +16,6 @@ public interface ListManageClient {
     ListsResponse getLists();
 
     @PostMapping
-    CreateListResponse createList(@RequestBody CreateListRequest request);
+    CreateListResponse createList(@RequestBody CreateListRequest request, @RequestParam String type);
 
 }
