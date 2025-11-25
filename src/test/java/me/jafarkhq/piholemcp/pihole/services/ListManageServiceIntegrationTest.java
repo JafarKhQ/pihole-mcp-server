@@ -5,11 +5,13 @@ import lombok.experimental.FieldDefaults;
 import me.jafarkhq.piholemcp.pihole.models.responses.CreateListResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.wiremock.spring.ConfigureWireMock;
 import org.wiremock.spring.EnableWireMock;
 import org.wiremock.spring.InjectWireMock;
 
@@ -20,9 +22,12 @@ import static org.mockito.Mockito.verify;
 
 
 @SpringBootTest
-@EnableWireMock
+@EnableWireMock(
+        @ConfigureWireMock(port = 12345)
+)
 @ActiveProfiles("test")
 @FieldDefaults(makeFinal = false)
+@DisplayName("ListManageService IntegrationTest")
 class ListManageServiceIntegrationTest {
 
     @InjectWireMock
@@ -46,6 +51,7 @@ class ListManageServiceIntegrationTest {
     }
 
     @Test
+    @DisplayName("Should successfully add list with valid parameters")
     void addNewListShouldPostToPiHoleUsingWireMock() {
         wireMockServer.stubFor(post(urlPathEqualTo("/api/lists"))
                 .withQueryParam("type", equalTo("allow"))
