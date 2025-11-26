@@ -37,7 +37,7 @@ public class ActionsTool {
     @Tool(name = "set_pihole_dns_blocking_status",
             description = "Enable or disable DNS blocking on the Pihole server. Optionally set a timer for how long to disable blocking.")
     public String setBlockingStatus(@ToolParam(description = "boolean true to enable DNS blocking or false to disable DNS blocking") boolean blocking,
-                                    @ToolParam(description = "in case of disabling DNS blocking provide the period in seconds, otherwise send null") Integer seconds) {
+                                    @ToolParam(description = "in case of disabling DNS blocking provide the period in seconds, otherwise send null", required = false) Integer seconds) {
         return dnsControlService.setCurrentStatus(blocking, seconds);
     }
 

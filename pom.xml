@@ -4,9 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.jafarkhq</groupId>
-    <artifactId>pihole-mcp</artifactId>
+    <artifactId>pihole-mcp-server</artifactId>
     <version>0.0.1</version>
-    <name>pihole-mcp-server</name>
+    <name>Pihole MCP Server</name>
+    <description>MCP Server allows you to manage Pihole through its API</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

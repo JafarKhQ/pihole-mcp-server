@@ -1,7 +1,7 @@
 # Spring Configs
 spring:
   application:
-    name: pihole-mcp-server
+    name: @project.artifactId@
   main:
     banner-mode: off
     web-application-type: none
@@ -10,9 +10,9 @@ spring:
       server:
         enabled: true
         stdio: true
-        name: ${spring.application.name}
-        version: 0.0.1
-        instructions: "This server allows you to manage Pihole through its API."
+        name: @project.artifactId@
+        version: @project.version@
+        instructions: "@project.description@"
         type: SYNC #ASYNC
         request-timeout: 30
         capabilities:
