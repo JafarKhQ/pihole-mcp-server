@@ -7,9 +7,9 @@ Tech Stack:
 - Java 21, Maven build.
 - Spring Boot 4.0.0
 - Spring Cloud 25.0.0, FeignClient for Pihole API communication.
-- Spring AI 1.1.0
+- Spring AI 2.0.0
 - Jackson 3.x for JSON processing.
-- Lombok for boilerplate code reduction.
+- Lombok for boilerplate code reduction, with `lombok.config` for project-wide settings.
 
 ## Architecture Guidelines
 - Package root: `me.jafarkhq.piholemcp`.
