@@ -15,13 +15,13 @@ public class MetricsTool {
     MetricsService metricsService;
     FtlInfoService ftlInfoService;
 
-    @Tool(name = "Pi-hole Status Summary",
+    @Tool(name = "pihole_status_summary",
             description = "Get Pi-hole status summary including total queries, blocked queries, and more.")
     public StatusSummeryResponse getStatusSummary() {
         return metricsService.getStatusSummary();
     }
 
-    @Tool(name = "Pi-hole System Info",
+    @Tool(name = "pihole_system_info",
             description = "Get detailed system information of the Pi-hole server.")
     public String getSystemInfo() {
         return ftlInfoService.getSystemInfo();
