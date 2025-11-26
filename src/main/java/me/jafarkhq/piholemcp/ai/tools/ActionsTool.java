@@ -22,19 +22,19 @@ public class ActionsTool {
     ListManageService listManageService;
     DomainManageService domainManageService;
 
-    @Tool(name = "Restart Pihole FTL Service",
-            description = "Restart the Pi-hole FTL DNS service to apply changes or resolve issues.")
+    @Tool(name = "restart_pihole_service",
+            description = "Restart the Pihole DNS service to apply changes or resolve issues.")
     public String restartFtlService() {
         return actionsService.restartDns();
     }
 
-    @Tool(name = "Get Pihole DNS Blocking Status",
-            description = "Retrieve the current DNS blocking status of the Pi-hole server and the remaining seconds until blocking mode is automatically changed.")
+    @Tool(name = "get_pihole_dns_blocking_status",
+            description = "Retrieve the current DNS blocking status of the Pihole server and the remaining seconds until blocking mode is automatically changed.")
     public String getBlockingStatus() {
         return dnsControlService.getCurrentStatus();
     }
 
-    @Tool(name = "Set Pihole DNS Blocking Status",
+    @Tool(name = "set_pihole_dns_blocking_status",
             description = "Enable or disable DNS blocking on the Pihole server. Optionally set a timer for how long to disable blocking.")
     public String setBlockingStatus(@ToolParam(description = "boolean true to enable DNS blocking or false to disable DNS blocking") boolean blocking,
                                     @ToolParam(description = "in case of disabling DNS blocking provide the period in seconds, otherwise send null") Integer seconds) {
