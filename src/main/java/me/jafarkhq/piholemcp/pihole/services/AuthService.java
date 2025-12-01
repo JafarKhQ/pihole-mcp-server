@@ -6,32 +6,26 @@ import me.jafarkhq.piholemcp.configs.CacheConfig;
 import me.jafarkhq.piholemcp.pihole.clients.AuthClient;
 import me.jafarkhq.piholemcp.pihole.models.requests.AuthRequest;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 
 @Service
 @RequiredArgsConstructor
+@ConditionalOnExpression("!'${pihole.app_password:}'.isEmpty()")
 public class AuthService {
 
     private static final String KEY_AUTH_SID = "auth-sid-key";
 
-    @Value("${pihole.app_password:}")
+    @Value("${pihole.app_password}")
     byte[] apiKey;
+    @Lazy
     AuthClient client;
     Cache<String, CacheConfig.CachedWithExpiry> tokenCache;
 
-    public boolean isAuthEnabled() {
-        return apiKey != null && apiKey.length > 0;
-    }
-
-    public Optional<String> getValidToken() {
-        if (!isAuthEnabled()) {
-            return Optional.empty();
-        }
-
-        return Optional.of(tokenCache.get(KEY_AUTH_SID, key -> login()).value());
+    public String getValidToken() {
+        return tokenCache.get(KEY_AUTH_SID, key -> login()).value();
     }
 
     public void invalidateToken() {
@@ -45,7 +39,7 @@ public class AuthService {
             return new CacheConfig.CachedWithExpiry(session.sid(), session.validity());
         } catch (Exception e) {
             // TODO: handle errors
-            throw new RuntimeException("Failed to generate the token", e);
+            throw new RuntimeException("Failed to generate the token, make sure PIHOLE_APP_PASSWORD is correct.", e);
         }
     }
 

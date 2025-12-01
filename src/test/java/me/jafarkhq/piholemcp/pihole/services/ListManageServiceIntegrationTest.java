@@ -15,8 +15,6 @@ import org.wiremock.spring.ConfigureWireMock;
 import org.wiremock.spring.EnableWireMock;
 import org.wiremock.spring.InjectWireMock;
 
-import java.util.Optional;
-
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
@@ -43,10 +41,8 @@ class ListManageServiceIntegrationTest {
 
     @BeforeEach
     void setupMockedAuthService() {
-        when(authService.isAuthEnabled())
-                .thenReturn(true);
         when(authService.getValidToken())
-                .thenReturn(Optional.of("test-sid"));
+                .thenReturn("test-sid");
     }
 
     @AfterEach
