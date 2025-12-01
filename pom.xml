@@ -5,7 +5,7 @@
 
     <groupId>me.jafarkhq</groupId>
     <artifactId>pihole-mcp-server</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>Pihole MCP Server</name>
     <description>MCP Server allows you to manage Pihole through its API</description>
 
@@ -17,6 +17,9 @@
     </parent>
 
     <properties>
+        <!-- Project -->
+        <jar.name>pihole-mcp</jar.name>
+
         <!-- Java -->
         <java.version>21</java.version>
         <maven.compiler.source>21</maven.compiler.source>
@@ -106,7 +109,7 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>${jar.name}</finalName>
 
         <plugins>
             <plugin>
