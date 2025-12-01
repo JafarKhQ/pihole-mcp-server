@@ -8,6 +8,7 @@ import java.util.List;
 public record AddDomainResponse(
         List<Domain> domains,
         Processed processed,
+        @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         double took) {
 
     public record Domain(

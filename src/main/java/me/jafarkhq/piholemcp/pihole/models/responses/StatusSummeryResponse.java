@@ -7,6 +7,7 @@ public record StatusSummeryResponse(
         Queries queries,
         Clients clients,
         Gravity gravity,
+        @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         double took) {
 
     public record Queries(

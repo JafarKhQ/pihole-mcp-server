@@ -7,6 +7,7 @@ import java.util.List;
 
 public record SystemInfoResponse(
         System system,
+        @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         double took) {
 
     public record System(
