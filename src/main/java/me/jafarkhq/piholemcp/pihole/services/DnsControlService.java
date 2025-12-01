@@ -3,6 +3,7 @@ package me.jafarkhq.piholemcp.pihole.services;
 import lombok.RequiredArgsConstructor;
 import me.jafarkhq.piholemcp.pihole.clients.DnsControlClient;
 import me.jafarkhq.piholemcp.pihole.models.requests.BlockingStatusRequest;
+import me.jafarkhq.piholemcp.pihole.models.responses.BlockingStatusResponse;
 import org.springframework.stereotype.Service;
 
 
@@ -12,11 +13,11 @@ public class DnsControlService {
 
     DnsControlClient client;
 
-    public String getCurrentStatus() {
+    public BlockingStatusResponse getCurrentStatus() {
         return client.getCurrentStatus();
     }
 
-    public String setCurrentStatus(boolean blocking, Integer timer) {
+    public BlockingStatusResponse setCurrentStatus(boolean blocking, Integer timer) {
         return client.setCurrentStatus(new BlockingStatusRequest(blocking, blocking ? null : timer));
     }
 

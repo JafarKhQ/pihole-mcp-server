@@ -29,7 +29,7 @@ Tech Stack:
 - Use constructor injection (`@RequiredArgsConstructor` or explicit constructors) — no field injection.
 - Use `var` only when the type is obvious.
 - Use `@Slf4j` for logger injection, log at appropriate levels.
-- Configuration properties in `application.yml`.
+- Configuration properties in `application.yaml`.
 - Lombok project defaults to `lombok.fieldDefaults.defaultFinal=true` and `lombok.fieldDefaults.defaultPrivate=true`.
 - Use inner records when a record is only used once to reduce file count.
 - Do not specify `private final` on fields — Lombok defaults handle this automatically.

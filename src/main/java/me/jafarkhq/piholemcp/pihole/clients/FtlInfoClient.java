@@ -1,5 +1,6 @@
 package me.jafarkhq.piholemcp.pihole.clients;
 
+import me.jafarkhq.piholemcp.pihole.models.responses.SystemInfoResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -7,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface FtlInfoClient {
 
     @GetMapping("info/system")
-    String systemInfo();
+    SystemInfoResponse systemInfo();
 
 }

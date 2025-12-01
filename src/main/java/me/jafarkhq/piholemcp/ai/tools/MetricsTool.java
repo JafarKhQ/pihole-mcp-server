@@ -2,6 +2,7 @@ package me.jafarkhq.piholemcp.ai.tools;
 
 import lombok.RequiredArgsConstructor;
 import me.jafarkhq.piholemcp.pihole.models.responses.StatusSummeryResponse;
+import me.jafarkhq.piholemcp.pihole.models.responses.SystemInfoResponse;
 import me.jafarkhq.piholemcp.pihole.services.FtlInfoService;
 import me.jafarkhq.piholemcp.pihole.services.MetricsService;
 import org.springframework.ai.tool.annotation.Tool;
@@ -23,7 +24,7 @@ public class MetricsTool {
 
     @Tool(name = "pihole_system_info",
             description = "Get detailed system information of the Pi-hole server.")
-    public String getSystemInfo() {
+    public SystemInfoResponse getSystemInfo() {
         return ftlInfoService.getSystemInfo();
     }
 

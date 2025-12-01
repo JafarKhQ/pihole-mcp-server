@@ -3,6 +3,7 @@ package me.jafarkhq.piholemcp.pihole.services;
 import lombok.RequiredArgsConstructor;
 import me.jafarkhq.piholemcp.pihole.clients.DomainManageClient;
 import me.jafarkhq.piholemcp.pihole.models.requests.AddNewDomainRequest;
+import me.jafarkhq.piholemcp.pihole.models.responses.AddDomainResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class DomainManageService {
     DomainManageClient client;
     GroupsService groupsService;
 
-    public String addNewDomain(String type, String kind, String domain, String comment) {
+    public AddDomainResponse addNewDomain(String type, String kind, String domain, String comment) {
         type = StringUtils.toRootLowerCase(type);
         kind = StringUtils.toRootLowerCase(kind);
         domain = StringUtils.trimToEmpty(domain);

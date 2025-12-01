@@ -25,20 +25,20 @@ public class ActionsTool {
     @Tool(name = "restart_pihole_service",
             description = "Restart the Pihole DNS service to apply changes or resolve issues.")
     public String restartFtlService() {
-        return actionsService.restartDns();
+        return toJson(actionsService.restartDns());
     }
 
     @Tool(name = "get_pihole_dns_blocking_status",
             description = "Retrieve the current DNS blocking status of the Pihole server and the remaining seconds until blocking mode is automatically changed.")
     public String getBlockingStatus() {
-        return dnsControlService.getCurrentStatus();
+        return toJson(dnsControlService.getCurrentStatus());
     }
 
     @Tool(name = "set_pihole_dns_blocking_status",
             description = "Enable or disable DNS blocking on the Pihole server. Optionally set a timer for how long to disable blocking.")
     public String setBlockingStatus(@ToolParam(description = "boolean true to enable DNS blocking or false to disable DNS blocking") boolean blocking,
                                     @ToolParam(description = "in case of disabling DNS blocking provide the period in seconds, otherwise send null", required = false) Integer seconds) {
-        return dnsControlService.setCurrentStatus(blocking, seconds);
+        return toJson(dnsControlService.setCurrentStatus(blocking, seconds));
     }
 
     @Tool(name = "add_domain_to_pihole_deny_or_allow",
@@ -52,7 +52,7 @@ public class ActionsTool {
                                @ToolParam(description = "kind of the domain name, can be exact or regex") String kind,
                                @ToolParam(description = "the domain name to be added, can be domain or regular expression") String domain,
                                @ToolParam(description = "an optional comment for the domain", required = false) String comment) {
-        return domainManageService.addNewDomain(type, kind, domain, comment);
+        return toJson(domainManageService.addNewDomain(type, kind, domain, comment));
     }
 
     @Tool(name = "add_url_list_to_pihole_block_or_allow",

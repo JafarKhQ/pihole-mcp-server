@@ -3,6 +3,7 @@ package me.jafarkhq.piholemcp.pihole.services;
 import lombok.experimental.FieldDefaults;
 import me.jafarkhq.piholemcp.pihole.clients.DomainManageClient;
 import me.jafarkhq.piholemcp.pihole.models.requests.AddNewDomainRequest;
+import me.jafarkhq.piholemcp.pihole.models.responses.AddDomainResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -25,9 +28,9 @@ import static org.mockito.Mockito.*;
 class DomainManageServiceTest {
 
     @Mock
-    DomainManageClient domainManageClient;
-    @Mock
     GroupsService groupsService;
+    @Mock
+    DomainManageClient domainManageClient;
 
     @InjectMocks
     DomainManageService domainManageService;
@@ -44,13 +47,13 @@ class DomainManageServiceTest {
             String kind = "exact";
             String domain = "example.com";
             String comment = "Test domain";
-            String expectedResponse = "Success";
+            var expectedResponse = new AddDomainResponse(List.of(), null, 0.01);
 
             when(domainManageClient.addNewDomain(anyString(), anyString(), any(AddNewDomainRequest.class)))
                     .thenReturn(expectedResponse);
 
             // WHEN
-            String result = domainManageService.addNewDomain(type, kind, domain, comment);
+            AddDomainResponse result = domainManageService.addNewDomain(type, kind, domain, comment);
 
             // THEN
             assertThat(result).isEqualTo(expectedResponse);
@@ -74,7 +77,7 @@ class DomainManageServiceTest {
             String expectedType = inputType.toLowerCase();
 
             when(domainManageClient.addNewDomain(any(), any(), any(AddNewDomainRequest.class)))
-                    .thenReturn("Success");
+                    .thenReturn(new AddDomainResponse(List.of(), null, 0.01));
 
             // WHEN
             domainManageService.addNewDomain(inputType, kind, domain, comment);
@@ -102,7 +105,7 @@ class DomainManageServiceTest {
             String expectedKind = inputKind.toLowerCase();
 
             when(domainManageClient.addNewDomain(any(), any(), any(AddNewDomainRequest.class)))
-                    .thenReturn("Success");
+                    .thenReturn(new AddDomainResponse(List.of(), null, 0.01));
 
             // WHEN
             domainManageService.addNewDomain(type, inputKind, domain, comment);
@@ -128,7 +131,7 @@ class DomainManageServiceTest {
             String comment = "Test domain";
 
             when(domainManageClient.addNewDomain(any(), any(), any(AddNewDomainRequest.class)))
-                    .thenReturn("Success");
+                    .thenReturn(new AddDomainResponse(List.of(), null, 0.01));
 
             // WHEN
             domainManageService.addNewDomain(type, kind, inputDomain, comment);
@@ -149,7 +152,7 @@ class DomainManageServiceTest {
         void shouldCreateCorrectRequest(String type, String kind, String domain, String comment) {
             // GIVEN
             when(domainManageClient.addNewDomain(any(), any(), any(AddNewDomainRequest.class)))
-                    .thenReturn("Success");
+                    .thenReturn(new AddDomainResponse(List.of(), null, 0.01));
 
             // WHEN
             domainManageService.addNewDomain(type, kind, domain, comment);
@@ -196,7 +199,7 @@ class DomainManageServiceTest {
             String comment = "Test";
 
             when(domainManageClient.addNewDomain(any(), any(), any(AddNewDomainRequest.class)))
-                    .thenReturn("Success");
+                    .thenReturn(new AddDomainResponse(List.of(), null, 0.01));
 
             // WHEN & THEN
             assertThatCode(() -> domainManageService.addNewDomain(type, kind, domain, comment))
@@ -237,7 +240,7 @@ class DomainManageServiceTest {
             String comment = "Test";
 
             when(domainManageClient.addNewDomain(any(), any(), any(AddNewDomainRequest.class)))
-                    .thenReturn("Success");
+                    .thenReturn(new AddDomainResponse(List.of(), null, 0.01));
 
             // WHEN & THEN
             assertThatCode(() -> domainManageService.addNewDomain(type, kind, domain, comment))
@@ -336,15 +339,16 @@ class DomainManageServiceTest {
             String kind = "exact";
             String domain = "example.com";
             String comment = null;
+            var expectedResponse = new AddDomainResponse(List.of(), null, 0.01);
 
             when(domainManageClient.addNewDomain(any(), any(), any(AddNewDomainRequest.class)))
-                    .thenReturn("Success");
+                    .thenReturn(expectedResponse);
 
             // WHEN
-            String result = domainManageService.addNewDomain(type, kind, domain, comment);
+            AddDomainResponse result = domainManageService.addNewDomain(type, kind, domain, comment);
 
             // THEN
-            assertThat(result).isEqualTo("Success");
+            assertThat(result).isEqualTo(expectedResponse);
             ArgumentCaptor<AddNewDomainRequest> requestCaptor = ArgumentCaptor.forClass(AddNewDomainRequest.class);
             verify(domainManageClient).addNewDomain(anyString(), anyString(), requestCaptor.capture());
             assertThat(requestCaptor.getValue().comment()).isNull();
@@ -360,7 +364,7 @@ class DomainManageServiceTest {
             String comment = "Test";
 
             when(domainManageClient.addNewDomain(any(), any(), any(AddNewDomainRequest.class)))
-                    .thenReturn("Success");
+                    .thenReturn(new AddDomainResponse(List.of(), null, 0.01));
 
             // WHEN
             domainManageService.addNewDomain(type, kind, domain, comment);
@@ -379,15 +383,16 @@ class DomainManageServiceTest {
             String kind = "exact";
             String domain = "malware.com";
             String comment = "Block malware";
+            var expectedResponse = new AddDomainResponse(List.of(), null, 0.01);
 
             when(domainManageClient.addNewDomain(any(), any(), any(AddNewDomainRequest.class)))
-                    .thenReturn("Success");
+                    .thenReturn(expectedResponse);
 
             // WHEN
-            String result = domainManageService.addNewDomain(type, kind, domain, comment);
+            AddDomainResponse result = domainManageService.addNewDomain(type, kind, domain, comment);
 
             // THEN
-            assertThat(result).isEqualTo("Success");
+            assertThat(result).isEqualTo(expectedResponse);
             verify(domainManageClient, times(1)).addNewDomain(eq("deny"), anyString(), any());
         }
 
@@ -399,18 +404,18 @@ class DomainManageServiceTest {
             String kind = "regex";
             String domain = ".*\\.example\\.com";
             String comment = "Allow subdomains";
+            var expectedResponse = new AddDomainResponse(List.of(), null, 0.01);
 
             when(domainManageClient.addNewDomain(any(), any(), any(AddNewDomainRequest.class)))
-                    .thenReturn("Success");
+                    .thenReturn(expectedResponse);
 
             // WHEN
-            String result = domainManageService.addNewDomain(type, kind, domain, comment);
+            AddDomainResponse result = domainManageService.addNewDomain(type, kind, domain, comment);
 
             // THEN
-            assertThat(result).isEqualTo("Success");
+            assertThat(result).isEqualTo(expectedResponse);
             verify(domainManageClient, times(1)).addNewDomain(anyString(), eq("regex"), any());
         }
     }
 
 }
-
