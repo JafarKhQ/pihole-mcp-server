@@ -4,9 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.jafarkhq</groupId>
-    <artifactId>pihole-mcp</artifactId>
-    <version>0.0.1</version>
-    <name>pihole-mcp-server</name>
+    <artifactId>pihole-mcp-server</artifactId>
+    <version>0.0.2</version>
+    <name>Pihole MCP Server</name>
+    <description>MCP Server allows you to manage Pihole through its API</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -16,6 +17,9 @@
     </parent>
 
     <properties>
+        <!-- Project -->
+        <jar.name>pihole-mcp</jar.name>
+
         <!-- Java -->
         <java.version>21</java.version>
         <maven.compiler.source>21</maven.compiler.source>
@@ -23,12 +27,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Spring -->
-        <spring-ai.version>1.1.0</spring-ai.version>
+        <spring-ai.version>2.0.0-SNAPSHOT</spring-ai.version>
         <spring-boot.version>4.0.0</spring-boot.version>
         <spring-cloud.version>2025.1.0-RC1</spring-cloud.version>
 
         <!-- Tools -->
         <commons-fileupload.version>1.6.0</commons-fileupload.version>
+
+        <!-- Tests -->
+        <wiremock.version>4.0.8</wiremock.version>
     </properties>
 
     <dependencyManagement>
@@ -93,10 +100,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.wiremock.integrations</groupId>
+            <artifactId>wiremock-spring-boot-standalone</artifactId>
+            <version>${wiremock.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>${jar.name}</finalName>
 
         <plugins>
             <plugin>
@@ -125,5 +138,35 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>central-portal-snapshots</id>
+            <name>Central Portal Snapshots</name>
+            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>
