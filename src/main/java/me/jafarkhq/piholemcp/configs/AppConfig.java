@@ -23,7 +23,15 @@ public class AppConfig {
                 .enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT)
                 .changeDefaultPropertyInclusion(incl ->
                         incl.withValueInclusion(JsonInclude.Include.NON_NULL)
-                                .withValueInclusion(JsonInclude.Include.NON_EMPTY)
+                )
+                .changeDefaultPropertyInclusion(incl ->
+                        incl.withValueInclusion(JsonInclude.Include.NON_EMPTY)
+                )
+                .changeDefaultPropertyInclusion(incl ->
+                        incl.withContentInclusion(JsonInclude.Include.NON_NULL)
+                )
+                .changeDefaultPropertyInclusion(incl ->
+                        incl.withContentInclusion(JsonInclude.Include.NON_EMPTY)
                 );
     }
 
